@@ -1,15 +1,19 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import MapRender from './MapRenderer'
 import './App.css'
+import { LoadScript } from '@react-google-maps/api';
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const mapKey = import.meta.env.VITE_MAP_API_KEY;
+  const lib = ["places"];
 
   return (
     <>
       <div>
-        
+        <LoadScript googleMapsApiKey={mapKey} libraries={lib}>
+        <MapRender />
+        </LoadScript>
       </div>
     </>
   )
