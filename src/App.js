@@ -9,9 +9,7 @@ function App() {
 
   return (
     <div className="App">
-      {/* <LoadScript googleMapsApiKey={key}> */}
       <MapRender />
-      {/* </LoadScript> */}
     </div>
   );
 }
