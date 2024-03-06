@@ -70,3 +70,7 @@ body {
 .guessModalAction:hover {
     background-color: rgb(1, 148, 148);
 }
+
+.guessModalContainer .gm-svpc {
+    display: none;
+}
