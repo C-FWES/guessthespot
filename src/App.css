@@ -15,3 +15,17 @@ body {
 .App {
     height: 100%;
 }
+
+/* hiding default gmap styles */
+
+.gm-fullscreen-control {
+    display: none;
+}
+
+.gm-iv-address {
+    display: none;
+}
+
+.gm-iv-small-container {
+    display: none;
+}
