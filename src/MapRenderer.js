@@ -3,8 +3,8 @@ import { GoogleMap, LoadScript, StreetViewPanorama } from '@react-google-maps/ap
 import './App.css'
 
 const containerStyle = {
-    width: '800px',
-    height: '800px'
+    width: '100%',
+    height: '100%'
   };
   
   const center = {
