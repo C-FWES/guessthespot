@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import PanoramaRender from './PanoramaRenderer';
 import GuessModal from './GuessModal';
+import ScoreModal from './ScoreModal';
 import { LoadScript } from '@react-google-maps/api';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <div className='panoramaContainer'>
         <PanoramaRender />
       </div>
+      <ScoreModal></ScoreModal>
       <GuessModal></GuessModal>
     </div>
   );
