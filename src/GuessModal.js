@@ -25,7 +25,7 @@ function GuessModal() {
     return (
         <div className="guessModalContainer">
             <div className="guessModalMapContainer">
-                <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={0} onClick={handleMapClick}>
+                <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={0} onClick={handleMapClick} clickableIcons={false} options={{draggableCursor: 'default'}}>
                 {markerPos && (
                     <Marker position={markerPos} />
                 )}
