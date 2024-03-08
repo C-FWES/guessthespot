@@ -19,8 +19,6 @@ function GuessModal({setCoordinates, mapCoordinates}) {
 
     const [markerPos, setMarkerPos] = useState(null) // store the position of a clicked marker
 
-    console.log(mapCoordinates)
-
     const handleMapClick = (e) => { // get coordinates of a clicked point on the map
         const clickedLat = e.latLng.lat();
         const clickedLng = e.latLng.lng();
