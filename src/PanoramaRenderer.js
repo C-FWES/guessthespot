@@ -43,7 +43,8 @@ const containerStyle = {
             pov: {
               heading: 0,  // direction of camera (0 - 360)
               pitch: 0       // angle of camera (-90 [down] to 90 [up])
-            }
+            },
+            showRoadLabels: false
           }}/>
         </GoogleMap>
     ) : null
