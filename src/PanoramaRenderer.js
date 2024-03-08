@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import GuessModal from './GuessModal';
 import { GoogleMap, LoadScript, StreetViewPanorama } from '@react-google-maps/api';
 import './App.css'
 
@@ -7,7 +8,7 @@ const containerStyle = {
     height: '100%'
   };
 
-  function MapRender() {
+  function MapRender({setCoordinates}) {
     
     const [center, setCenter] = useState(null)
 
@@ -23,6 +24,7 @@ const containerStyle = {
         console.log("EE " + data.location.latLng.toUrlValue(6));
         console.log(data);
         setCenter(data.location.latLng);
+        setCoordinates(prevState => ({ ...prevState, mapRender: {lat: data.location.latLng.lat(), lng: data.location.latLng.lng()}}))
       } else generateRandomPoint();
     }
 
@@ -30,7 +32,7 @@ const containerStyle = {
       generateRandomPoint()
     }, [])
 
-    return center ? (
+    return (center &&
         <GoogleMap
           mapContainerStyle={containerStyle}
           center={center}
@@ -47,7 +49,7 @@ const containerStyle = {
             showRoadLabels: false
           }}/>
         </GoogleMap>
-    ) : null
+      )
   }
 
 export default MapRender;

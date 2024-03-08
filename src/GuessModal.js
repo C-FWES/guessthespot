@@ -12,7 +12,7 @@ const center = {
     lng: -79.665037
   };
 
-function GuessModal() {
+function GuessModal({setCoordinates}) {
 
     const [markerPos, setMarkerPos] = useState(null) // store the position of a clicked marker
 
@@ -20,6 +20,7 @@ function GuessModal() {
         const clickedLat = e.latLng.lat();
         const clickedLng = e.latLng.lng();
         setMarkerPos({lat: clickedLat, lng: clickedLng})
+        setCoordinates(prevState => ({ ...prevState, guessModal: {lat: clickedLat, lng: clickedLng}}))
     }
 
     return (
