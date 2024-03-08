@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { GoogleMap, Marker } from "@react-google-maps/api";
+import { Link, useNavigate } from 'react-router-dom'
 
 const containerStyle = {
     width: '360px',
@@ -10,17 +11,26 @@ const containerStyle = {
 const center = {
     lat: 43.613159,
     lng: -79.665037
-  };
+};
 
-function GuessModal({setCoordinates}) {
+function GuessModal({setCoordinates, mapCoordinates}) {
+
+    const navigate = useNavigate();
 
     const [markerPos, setMarkerPos] = useState(null) // store the position of a clicked marker
+
+    console.log(mapCoordinates)
 
     const handleMapClick = (e) => { // get coordinates of a clicked point on the map
         const clickedLat = e.latLng.lat();
         const clickedLng = e.latLng.lng();
         setMarkerPos({lat: clickedLat, lng: clickedLng})
         setCoordinates(prevState => ({ ...prevState, guessModal: {lat: clickedLat, lng: clickedLng}}))
+    }
+
+    const handleGuess = () => {
+        console.log(markerPos)
+        navigate('/result', { state: { markerPos, mapCoordinates } })
     }
 
     return (
@@ -33,7 +43,9 @@ function GuessModal({setCoordinates}) {
                 </GoogleMap>
             </div>
             <div className="guessModalActionContainer">
-                <button className="guessModalAction">
+                <button 
+                className="guessModalAction"
+                onClick={handleGuess}>
                     Guess!
                 </button>
             </div>

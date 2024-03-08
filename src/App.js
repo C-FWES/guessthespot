@@ -1,10 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
-import PanoramaRender from './PanoramaRenderer';
-import GuessModal from './GuessModal';
-import ScoreModal from './ScoreModal';
+import InitGame from './InitGame';
+import DistanceRender from './DistanceRender';
 import { LoadScript } from '@react-google-maps/api';
 import { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes, HashRouter } from 'react-router-dom';
 
 function App() {
 
@@ -13,15 +13,16 @@ function App() {
     mapRender: null
   })
 
-  console.log(coordinates)
+  // console.log(coordinates)
 
   return (
     <div className="App">
-      <div className='panoramaContainer'>
-        <PanoramaRender setCoordinates={setCoordinates} />
-      </div>
-      <ScoreModal></ScoreModal>
-      <GuessModal setCoordinates={setCoordinates}></GuessModal>
+      <Router>
+        <Routes>
+          <Route path='/' element={<InitGame />} />
+          <Route path='/result' element={<DistanceRender />}/>
+        </Routes>
+      </Router>
     </div>
   );
 }
