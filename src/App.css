@@ -110,3 +110,10 @@ body {
     float: right;
     margin-right: 20px;
 }
+
+/* results board */
+
+.distanceRender {
+    height: 100%;
+    width: 100%;
+}
