@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import InitGame from './InitGame';
+import GuessFrame from './GuessFrame';
 import DistanceRender from './DistanceRender';
 import { LoadScript } from '@react-google-maps/api';
 import { useState } from 'react';
@@ -19,7 +19,7 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route path='/' element={<InitGame />} />
+          <Route path='/' element={<GuessFrame />} />
           <Route path='/result' element={<DistanceRender />}/>
         </Routes>
       </Router>

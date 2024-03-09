@@ -4,7 +4,7 @@ import GuessModal from './GuessModal';
 import ScoreModal from './ScoreModal';
 import { useState } from 'react';
 
-function InitGame() {
+function GuessFrame() {
 
     const [coordinates, setCoordinates] = useState({
         guessModal: null,
@@ -22,4 +22,4 @@ function InitGame() {
     )
 }  
 
-export default InitGame
+export default GuessFrame
