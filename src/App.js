@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import GameController from './GameController';
 import GuessFrame from './GuessFrame';
 import DistanceRender from './DistanceRender';
 import { LoadScript } from '@react-google-maps/api';
@@ -19,7 +20,7 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route path='/' element={<GuessFrame />} />
+          <Route path='/' element={<GameController />} />
           <Route path='/result' element={<DistanceRender />}/>
         </Routes>
       </Router>
