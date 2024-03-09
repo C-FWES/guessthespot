@@ -4,6 +4,7 @@ import Modal from 'react-modal'
 import ScoreModal from "./ScoreModal";
 import { useLocation } from 'react-router-dom'
 import { GoogleMap, Marker, Polyline } from "@react-google-maps/api";
+import { getDistance } from "./calculate";
 import './App.css'
 
 const containerStyle = {
@@ -15,13 +16,25 @@ function DistanceRender() {
 
     const { state } = useLocation();
     const [markers, setMarkers] = useState([]);
-    const [path, setPath] = useState([])
+    const [path, setPath] = useState([]);
+    const [distance, setDistance] = useState(null);
 
     useEffect(() => {
         if (state) {
             const { markerPos, mapCoordinates } = state;
             setMarkers([markerPos, mapCoordinates]);
             setPath([markerPos, mapCoordinates]);
+            let lat1 = markerPos.lat;
+            let lng1 = markerPos.lng;
+            let lat2 = mapCoordinates.lat;
+            let lng2 = mapCoordinates.lng;
+            var result = Math.floor(getDistance(lat1, lng1, lat2, lng2));
+            console.log(result)
+            if (result >= 10000) {
+                setDistance((Math.floor(result / 1000)) + " km")
+            } else {
+                setDistance(result + " m")   
+            }
         }
     }, [state]);
 
@@ -44,7 +57,7 @@ function DistanceRender() {
             </GoogleMap>
             }
             <div className="distanceInfoContainer">
-                <span className="roundText">You were 2000m away from the location</span>
+                <span className="roundText">You were {distance} away from the location</span>
                 <button className="roundAction">Next Round</button>
             </div>
         </div>
