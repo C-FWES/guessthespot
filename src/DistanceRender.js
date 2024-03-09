@@ -18,6 +18,7 @@ function DistanceRender() {
     const [markers, setMarkers] = useState([]);
     const [path, setPath] = useState([]);
     const [distance, setDistance] = useState(null);
+    const labels = ["Guess", "Actual"]
 
     useEffect(() => {
         if (state) {
@@ -53,7 +54,7 @@ function DistanceRender() {
                     strokeWeight: 2
                 }}/> 
                 }
-                {markers.map((marker, index) => <Marker key={index} position={marker}/>)}
+                {markers.map((marker, index) => <Marker key={index} position={marker} label={labels[index]}/>)}
             </GoogleMap>
             }
             <div className="distanceInfoContainer">
