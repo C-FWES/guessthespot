@@ -8,7 +8,7 @@ import './App.css'
 
 const containerStyle = {
     width: '100%',
-    height: 'calc(100% - 61px)',
+    height: 'calc(100% - 93px)',
 }
 
 function DistanceRender() {
@@ -44,7 +44,8 @@ function DistanceRender() {
             </GoogleMap>
             }
             <div className="distanceInfoContainer">
-                You were 2000m away from the location
+                <span className="roundText">You were 2000m away from the location</span>
+                <button className="roundAction">Next Round</button>
             </div>
         </div>
     )

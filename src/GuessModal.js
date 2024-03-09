@@ -5,7 +5,8 @@ import { Link, useNavigate } from 'react-router-dom'
 
 const containerStyle = {
     width: '360px',
-    height: '260px'
+    height: '260px',
+    borderRadius: '16px',
 }
 
 const center = {
