@@ -4,8 +4,8 @@ import { GoogleMap, Marker } from "@react-google-maps/api";
 import { Link, useNavigate } from 'react-router-dom'
 
 const containerStyle = {
-    width: '360px',
-    height: '260px',
+    width: '100%',
+    height: '100%',
     borderRadius: '16px',
 }
 
