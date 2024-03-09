@@ -1,7 +1,10 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-function ScoreModal() {
+function ScoreModal({mapCoordinates}) {
+
+    const navigate = useNavigate();
 
     const [score, setScore] = useState(19999)
     const [round, setRound] = useState(1)
@@ -14,6 +17,12 @@ function ScoreModal() {
 
         return () => clearInterval(countdown);
     }, [])
+
+    useEffect(() => {
+        if (timer == 0) {
+            navigate('/result', { state: { mapCoordinates } })
+        }
+    }, [timer])
 
     return(
         <div className="scoreModalContainer">

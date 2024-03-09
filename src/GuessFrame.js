@@ -16,7 +16,7 @@ function GuessFrame() {
             <div className='panoramaContainer'>
                 <PanoramaRender setCoordinates={setCoordinates} />
             </div>
-            <ScoreModal></ScoreModal>
+            <ScoreModal mapCoordinates={coordinates.mapRender}></ScoreModal>
             <GuessModal setCoordinates={setCoordinates} mapCoordinates={coordinates.mapRender}></GuessModal>
         </div>
     )
