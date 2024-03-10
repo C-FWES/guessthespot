@@ -1,11 +1,12 @@
 import React from "react";
 import { useState, useEffect, useContext } from "react";
 import RoundContext from "./RoundContext";
+import ScoreContext from "./ScoreContext";
 import Modal from 'react-modal'
 import ScoreModal from "./ScoreModal";
 import { useLocation, useNavigate } from 'react-router-dom'
 import { GoogleMap, Marker, Polyline } from "@react-google-maps/api";
-import { getDistance } from "./calculate";
+import { getDistance, getScore } from "./calculate";
 import './App.css'
 
 const containerStyle = {
@@ -23,6 +24,7 @@ function DistanceRender() {
     const labels = ["Guess", "Actual"]
 
     const { round, setRound } = useContext(RoundContext);
+    const { score, setScore } = useContext(ScoreContext)
 
     const navigate = useNavigate();
 
@@ -52,6 +54,8 @@ function DistanceRender() {
             } else {
                 setDistance(result + " m")   
             }
+            setScore(score + getScore(result / 1000));
+            console.log(score)
         }
     }, [state, markerPosState]);
 

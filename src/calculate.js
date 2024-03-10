@@ -12,3 +12,7 @@ export const getDistance = (lat1, lng1, lat2, lng2) => {
 const toRad = (value) => {
     return value * Math.PI/180;
 }
+
+export const getScore = (distance) => {
+    return Math.floor(5000*Math.exp((-1 * distance) / 2000));
+}

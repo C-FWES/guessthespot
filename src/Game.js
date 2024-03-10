@@ -3,10 +3,12 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import GuessFrame from "./GuessFrame";
 import RoundContext from "./RoundContext";
+import ScoreContext from "./ScoreContext";
 
 function Game() {
 
     const {round, setRound} = useContext(RoundContext);
+    const {score, setScore} = useContext(ScoreContext)
 
     const navigate = useNavigate();
 
@@ -26,6 +28,7 @@ function Game() {
             <GuessFrame key={round} nextRound={nextRound} />
         ) : (
             <div>
+            <h1>You scored {score}</h1>
             <h2>Play Again</h2>
             <button className="gameOptionButton" onClick={() => navigate(0)}>World (Moving)</button>
             </div>
