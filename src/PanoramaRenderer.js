@@ -17,8 +17,6 @@ const containerStyle = {
     function generateRandomPoint() {
       if (loading || panoramaFound) return;
       setLoading(true);
-
-
       var sv = new window.google.maps.StreetViewService();
       sv.getPanoramaByLocation(
         new window.google.maps.LatLng(Math.random() * 180 - 90, Math.random() * 360 - 180), 500, processSVData
