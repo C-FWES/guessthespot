@@ -11,8 +11,14 @@ const containerStyle = {
   function MapRender({setCoordinates}) {
     
     const [center, setCenter] = useState(null)
+    const [loading, setLoading] = useState(false)
+    let panoramaFound = false;
 
     function generateRandomPoint() {
+      if (loading || panoramaFound) return;
+      setLoading(true);
+
+
       var sv = new window.google.maps.StreetViewService();
       sv.getPanoramaByLocation(
         new window.google.maps.LatLng(Math.random() * 180 - 90, Math.random() * 360 - 180), 500, processSVData
@@ -20,11 +26,14 @@ const containerStyle = {
     }
   
     function processSVData(data, status) {
+      setLoading(false);
       if (status == window.google.maps.StreetViewStatus.OK) {
+        panoramaFound = true;
         console.log("EE " + data.location.latLng.toUrlValue(6));
         console.log(data);
         setCenter(data.location.latLng);
         setCoordinates(prevState => ({ ...prevState, mapRender: {lat: data.location.latLng.lat(), lng: data.location.latLng.lng()}}))
+        return;
       } else generateRandomPoint();
     }
 
@@ -32,7 +41,7 @@ const containerStyle = {
       generateRandomPoint()
     }, [])
 
-    return (center &&
+    return center && (
         <GoogleMap
           mapContainerStyle={containerStyle}
           center={center}
