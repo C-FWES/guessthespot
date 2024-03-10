@@ -15,7 +15,8 @@ function Game() {
         if (round < 5) {
             setRound(round + 1);
         } else if (round > 5) {
-            navigate('/')
+            navigate('/');
+            setRound(1);
         }
     };
 
@@ -24,7 +25,10 @@ function Game() {
         {round < 5 ? (
             <GuessFrame key={round} nextRound={nextRound} />
         ) : (
-            <button className="gameOptionButton">World (Moving)</button>
+            <div>
+            <h2>Play Again</h2>
+            <button className="gameOptionButton" onClick={() => navigate(0)}>World (Moving)</button>
+            </div>
         )}
         </div>
     )
