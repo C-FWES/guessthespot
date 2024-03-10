@@ -1,8 +1,9 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import RoundContext from "./RoundContext";
 import Modal from 'react-modal'
 import ScoreModal from "./ScoreModal";
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { GoogleMap, Marker, Polyline } from "@react-google-maps/api";
 import { getDistance } from "./calculate";
 import './App.css'
@@ -20,6 +21,17 @@ function DistanceRender() {
     const [markerPosState, setMarkerPos] = useState(null)
     const [distance, setDistance] = useState(null);
     const labels = ["Guess", "Actual"]
+
+    const { round, setRound } = useContext(RoundContext);
+
+    const navigate = useNavigate();
+
+    const updateRound = () => {
+        setRound(round + 1);
+        navigate('/game');
+    }
+
+    console.log("round: " + round)
 
     useEffect(() => {
         const { markerPos, mapCoordinates } = state;
@@ -63,7 +75,7 @@ function DistanceRender() {
             }
             <div className="distanceInfoContainer">
                 <span className="roundText">{distance ? `You were ${distance} away from the location` : `You did not guess`}</span>
-                <button className="roundAction">Next Round</button>
+                <button className="roundAction" onClick={updateRound}>Next Round</button>
             </div>
         </div>
     )

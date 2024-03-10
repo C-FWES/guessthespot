@@ -181,6 +181,12 @@ body {
     text-align: center;
 }
 
+.gameView {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
 .gameOptionButton {
     color: white;
     background-color: black;

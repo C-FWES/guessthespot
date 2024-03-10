@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
-import { useState } from "react";
+import RoundContext from "./RoundContext";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 function ScoreModal({mapCoordinates}) {
@@ -7,8 +8,9 @@ function ScoreModal({mapCoordinates}) {
     const navigate = useNavigate();
 
     const [score, setScore] = useState(19999)
-    const [round, setRound] = useState(1)
     const [timer, setTimer] = useState(60) // 1 minute timer
+
+    const {round, setRound} = useContext(RoundContext);
 
     useEffect(() => {
         const countdown = setInterval(() => {
