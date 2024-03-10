@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react'
+import React from 'react';
+import { useEffect, useState, useMemo } from 'react'
 import GuessModal from './GuessModal';
 import { GoogleMap, LoadScript, StreetViewPanorama } from '@react-google-maps/api';
 import './App.css'
@@ -8,7 +9,7 @@ const containerStyle = {
     height: '100%'
   };
 
-  function MapRender({setCoordinates}) {
+  function PanoramaRender({setCoordinates}) {
     
     const [center, setCenter] = useState(null)
     const [loading, setLoading] = useState(false)
@@ -59,4 +60,4 @@ const containerStyle = {
       )
   }
 
-export default MapRender;
+export default React.memo(PanoramaRender);
