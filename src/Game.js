@@ -24,7 +24,7 @@ function Game() {
 
     return (
         <div className="gameView">
-        {round < 5 ? (
+        {round <= 5 ? (
             <GuessFrame key={round} nextRound={nextRound} />
         ) : (
             <div>
