@@ -187,6 +187,10 @@ body {
     width: 100%;
 }
 
+.gameOptionsContainer {
+    margin-bottom: 8px;
+}
+
 .gameOptionButton {
     color: white;
     background-color: black;

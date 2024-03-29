@@ -4,7 +4,7 @@ import GuessModal from './GuessModal';
 import ScoreModal from './ScoreModal';
 import { useState } from 'react';
 
-function GuessFrame() {
+function GuessFrame({gameMode}) {
 
     const [coordinates, setCoordinates] = useState({
         guessModal: null,
@@ -14,7 +14,7 @@ function GuessFrame() {
     return (
         <div>
             <div className='panoramaContainer'>
-                <PanoramaRender setCoordinates={setCoordinates} />
+                <PanoramaRender setCoordinates={setCoordinates} gameMode={gameMode} />
             </div>
             <ScoreModal mapCoordinates={coordinates.mapRender}></ScoreModal>
             <GuessModal setCoordinates={setCoordinates} mapCoordinates={coordinates.mapRender}></GuessModal>
