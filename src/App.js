@@ -9,16 +9,19 @@ import RoundContext from './RoundContext';
 import { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, HashRouter } from 'react-router-dom';
 import ScoreContext from './ScoreContext';
+import ModeContext from './ModeContext';
 
 function App() {
 
   const [round, setRound] = useState(1);
   const [score, setScore] = useState(0);
+  const [gameMode, setGameMode] = useState(null)
 
   // console.log(coordinates)
 
   return (
     <div className="App">
+      <ModeContext.Provider value={{gameMode, setGameMode}}>
       <ScoreContext.Provider value={{score, setScore}}>
         <RoundContext.Provider value={{round, setRound}}>
           <Router>
@@ -31,6 +34,7 @@ function App() {
           </Router>
         </RoundContext.Provider>
       </ScoreContext.Provider>
+      </ModeContext.Provider>
     </div>
   );
 }
