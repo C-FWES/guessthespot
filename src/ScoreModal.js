@@ -4,7 +4,7 @@ import ScoreContext from "./ScoreContext";
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
-function ScoreModal({mapCoordinates}) {
+function ScoreModal({mapCoordinates, markerPos}) {
 
     const navigate = useNavigate();
 
@@ -22,7 +22,10 @@ function ScoreModal({mapCoordinates}) {
     }, [])
 
     useEffect(() => {
-        if (timer == 0) {
+        console.log(markerPos)
+        if (timer == 0 && markerPos) {
+            navigate('/result', { state: { markerPos, mapCoordinates } })
+        } else if (timer == 0) {
             navigate('/result', { state: { mapCoordinates } })
         }
     }, [timer])
