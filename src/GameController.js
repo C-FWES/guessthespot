@@ -16,9 +16,21 @@ function GameController() {
     }
 
     // play cities moving
-    const startCitiesWorldMovingGame = () => {
+    const startCitiesMovingGame = () => {
         navigate('/game')
         setGameMode('citiesMoving')
+    }
+
+    // play world no moving
+    const startWorldNoMovingGame = () => {
+        navigate('/game')
+        setGameMode('worldNoMoving')
+    }
+
+    // play cities no moving
+    const startCitiesNoMovingGame = () => {
+        navigate('/game')
+        setGameMode('citiesNoMoving')
     }
 
     return (
@@ -28,7 +40,13 @@ function GameController() {
                 <button className="gameOptionButton" onClick={startWorldMovingGame}>World (Moving)</button>
             </div>
             <div className="gameOptionsContainer">
-                <button className="gameOptionButton" onClick={startCitiesWorldMovingGame}>Cities (Moving)</button>
+                <button className="gameOptionButton" onClick={startCitiesMovingGame}>Cities (Moving)</button>
+            </div>
+            <div className="gameOptionsContainer">
+                <button className="gameOptionButton" onClick={startWorldNoMovingGame}>World (No moving)</button>
+            </div>
+            <div className="gameOptionsContainer">
+                <button className="gameOptionButton" onClick={startCitiesNoMovingGame}>Cities (No moving)</button>
             </div>
         </div>
     )

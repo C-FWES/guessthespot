@@ -77,11 +77,11 @@ import './App.css'
       if (loading || panoramaFound) return;
       setLoading(true);
       var sv = new window.google.maps.StreetViewService();
-      if (gameMode === 'worldMoving') {
+      if (gameMode === 'worldMoving'  || gameMode === 'worldNoMoving') {
         sv.getPanoramaByLocation(
           new window.google.maps.LatLng(Math.random() * 180 - 90, Math.random() * 360 - 180), 500, processSVData
         );
-      } else if (gameMode === 'citiesMoving') {
+      } else if (gameMode === 'citiesMoving' || gameMode === 'citiesNoMoving') {
         // get a random city
         const city = cities[Object.keys(cities)[Math.floor(Math.random() * Object.keys(cities).length)]];
         const lat = Math.random() * (city.lat[1] - city.lat[0]) + city.lat[0];
@@ -113,6 +113,7 @@ import './App.css'
           mapContainerStyle={containerStyle}
           center={center}
           zoom={10}
+          options={{ streetViewControl: false }}
         >
           <StreetViewPanorama 
           position={center} 
@@ -122,7 +123,9 @@ import './App.css'
               heading: 0,  // direction of camera (0 - 360)
               pitch: 0       // angle of camera (-90 [down] to 90 [up])
             },
-            showRoadLabels: false
+            showRoadLabels: false,
+            clickToGo: gameMode === 'worldNoMoving' || gameMode === 'citiesNoMoving' ? false : true,
+            disableDefaultUI: gameMode === 'worldNoMoving' || gameMode === 'citiesNoMoving' ? true : false,
           }}/>
         </GoogleMap>
       )
