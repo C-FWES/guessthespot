@@ -34,7 +34,7 @@ function GameController() {
     }
 
     return (
-        <div className="bg-slate-500 h-full w-100 text-center">
+        <div className="bg-slate-700 h-full w-100 text-center">
             <nav className="flex items-center justify-between flex-wrap bg-slate-800 p-6">
                 <div className="flex items-center flex-shrink-0 text-white mr-6">
                     <span className="font-semibold text-xl tracking-tight">GuessTheSpot</span>
@@ -51,17 +51,13 @@ function GameController() {
                     </div>
                 </div>
             </nav>
-            <div className="gameOptionsContainer">
-                <button className="gameOptionButton" onClick={startWorldMovingGame}>World (Moving)</button>
-            </div>
-            <div className="gameOptionsContainer">
-                <button className="gameOptionButton" onClick={startCitiesMovingGame}>Cities (Moving)</button>
-            </div>
-            <div className="gameOptionsContainer">
-                <button className="gameOptionButton" onClick={startWorldNoMovingGame}>World (No moving)</button>
-            </div>
-            <div className="gameOptionsContainer">
-                <button className="gameOptionButton" onClick={startCitiesNoMovingGame}>Cities (No moving)</button>
+            <div className="flex items-center justify-center">
+                <div className="grid grid-cols-2 gap-4 bg-slate-700 p-6">
+                    <button className="w-72 h-72 bg-slate-600 text-white rounded-2xl" onClick={startWorldMovingGame}>World (Moving)</button>
+                    <button className="w-72 h-72 bg-slate-600 text-white rounded-2xl" onClick={startWorldNoMovingGame}>World (No moving)</button>
+                    <button className="w-72 h-72 bg-slate-600 text-white rounded-2xl" onClick={startCitiesMovingGame}>Cities (Moving)</button>
+                    <button className="w-72 h-72 bg-slate-600 text-white rounded-2xl" onClick={startCitiesNoMovingGame}>Cities (No moving)</button>
+                </div>
             </div>
         </div>
     )
