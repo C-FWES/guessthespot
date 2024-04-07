@@ -4,6 +4,9 @@ import './App.css';
 import { useContext } from "react";
 import ModeContext from "./ModeContext";
 
+import worldImage from './assets/world.jpg';
+import citiesImage from './assets/cities.jpg';
+
 function GameController() {
 
     const navigate = useNavigate();
@@ -53,10 +56,21 @@ function GameController() {
             </nav>
             <div className="flex items-center justify-center">
                 <div className="grid grid-cols-2 gap-4 bg-slate-700 p-6">
-                    <button className="w-72 h-72 bg-slate-600 text-white rounded-2xl" onClick={startWorldMovingGame}>World (Moving)</button>
-                    <button className="w-72 h-72 bg-slate-600 text-white rounded-2xl" onClick={startWorldNoMovingGame}>World (No moving)</button>
-                    <button className="w-72 h-72 bg-slate-600 text-white rounded-2xl" onClick={startCitiesMovingGame}>Cities (Moving)</button>
-                    <button className="w-72 h-72 bg-slate-600 text-white rounded-2xl" onClick={startCitiesNoMovingGame}>Cities (No moving)</button>
+                    <button 
+                    className="w-72 h-72 text-white rounded-2xl" 
+                    onClick={startWorldMovingGame}
+                    style={{
+                        background: `url(${worldImage})`,
+                        backgroundSize: `cover`,
+                    }}
+                    >World</button>
+                    <button 
+                    className="w-72 h-72 bg-slate-600 text-white rounded-2xl" 
+                    onClick={startCitiesMovingGame}
+                    style={{
+                        background: `url(${citiesImage})`,
+                        backgroundSize: `cover`
+                    }}>Cities</button>
                 </div>
             </div>
         </div>
