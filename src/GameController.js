@@ -37,8 +37,8 @@ function GameController() {
     }
 
     return (
-        <div className="bg-slate-700 h-full w-100 text-center">
-            <nav className="flex items-center justify-between flex-wrap bg-slate-800 p-6">
+        <div className="bg-neutral-800 h-full w-100 text-center">
+            <nav className="flex items-center justify-between flex-wrap bg-neutral-900 p-6">
                 <div className="flex items-center flex-shrink-0 text-white mr-6">
                     <span className="font-semibold text-xl tracking-tight">GuessTheSpot</span>
                 </div>
@@ -50,27 +50,32 @@ function GameController() {
                 <div className="w-full block lg:flex lg:w-auto lg:justify-end">
                     <div className="text-sm lg:flex-grow">
                     <button className="inline-block text-sm px-4 py-2 leading-none border rounded text-white bg-gray-500 border-gray-500 hover:border-transparent hover:text-slate-800 hover:bg-white mt-4 lg:mt-0">Log In</button>
-                    <button className="inline-block text-sm px-4 py-2 leading-none border rounded text-white bg-slate-600 border-slate-600 hover:border-transparent hover:text-slate-800 hover:bg-white mt-4 lg:mt-0 ml-2">Sign Up</button>
+                    <button className="inline-block text-sm px-4 py-2 leading-none border rounded text-white bg-gray-600 border-gray-600 hover:border-transparent hover:text-slate-800 hover:bg-white mt-4 lg:mt-0 ml-2">Sign Up</button>
                     </div>
                 </div>
             </nav>
             <div className="flex items-center justify-center">
-                <div className="grid grid-cols-2 gap-4 bg-slate-700 p-6">
+                <div className="grid grid-cols-2 gap-4 bg-neutral-800 p-6">
                     <button 
                     className="w-72 h-72 text-white rounded-2xl" 
                     onClick={startWorldMovingGame}
                     style={{
                         background: `url(${worldImage})`,
                         backgroundSize: `cover`,
+                        WebkitBackdropFilter: `blur(8px)`,
                     }}
-                    >World</button>
+                    ><span className="bg-neutral-400/50 p-2 rounded-md" style={{
+                        backdropFilter: "blur(9px)",
+                    }}>World</span></button>
                     <button 
                     className="w-72 h-72 bg-slate-600 text-white rounded-2xl" 
                     onClick={startCitiesMovingGame}
                     style={{
                         background: `url(${citiesImage})`,
                         backgroundSize: `cover`
-                    }}>Cities</button>
+                    }}><span className="bg-neutral-400/50 p-2 rounded-md" style={{
+                        backdropFilter: "blur(9px)",
+                    }}>Cities</span></button>
                 </div>
             </div>
         </div>
