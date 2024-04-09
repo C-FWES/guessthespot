@@ -4,6 +4,8 @@ import GameController from './GameController';
 import Game from './Game';
 import GuessFrame from './GuessFrame';
 import DistanceRender from './DistanceRender';
+import PlayWorld from './PlayWorld';
+import PlayCities from './PlayCities';
 import { LoadScript } from '@react-google-maps/api';
 import RoundContext from './RoundContext';
 import { useState } from 'react';
@@ -27,6 +29,8 @@ function App() {
           <Router>
             <Routes>
               <Route path='/' element={<GameController />} />
+              <Route path='/world' element={<PlayWorld />} />
+              <Route path='/cities' element={<PlayCities />} />
               <Route path='/game' element={<Game />}/>
               <Route path='/guess' element={<GuessFrame />} />
               <Route path='/result' element={<DistanceRender />}/>

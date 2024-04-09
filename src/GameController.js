@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import './App.css';
 import { useContext } from "react";
 import ModeContext from "./ModeContext";
+import PlayWorld from "./PlayWorld";
+import PlayCities from "./PlayCities";
 
 import worldImage from './assets/world.jpg';
 import citiesImage from './assets/cities.jpg';
@@ -12,28 +14,14 @@ function GameController() {
     const navigate = useNavigate();
     const {gameMode, setGameMode} = useContext(ModeContext);
 
-    // play world moving
-    const startWorldMovingGame = () => {
-        navigate('/game')
-        setGameMode('worldMoving')
+    // play world
+    const startWorld = () => {
+        navigate('/world')
     }
 
-    // play cities moving
-    const startCitiesMovingGame = () => {
-        navigate('/game')
-        setGameMode('citiesMoving')
-    }
-
-    // play world no moving
-    const startWorldNoMovingGame = () => {
-        navigate('/game')
-        setGameMode('worldNoMoving')
-    }
-
-    // play cities no moving
-    const startCitiesNoMovingGame = () => {
-        navigate('/game')
-        setGameMode('citiesNoMoving')
+    // play cities
+    const startCities = () => {
+        navigate('/cities')
     }
 
     return (
@@ -58,7 +46,7 @@ function GameController() {
                 <div className="grid grid-cols-2 gap-4 bg-neutral-800 p-6">
                     <button 
                     className="w-72 h-72 text-white rounded-2xl" 
-                    onClick={startWorldMovingGame}
+                    onClick={startWorld}
                     style={{
                         background: `url(${worldImage})`,
                         backgroundSize: `cover`,
@@ -69,7 +57,7 @@ function GameController() {
                     }}>World</span></button>
                     <button 
                     className="w-72 h-72 bg-slate-600 text-white rounded-2xl" 
-                    onClick={startCitiesMovingGame}
+                    onClick={startCities}
                     style={{
                         background: `url(${citiesImage})`,
                         backgroundSize: `cover`
